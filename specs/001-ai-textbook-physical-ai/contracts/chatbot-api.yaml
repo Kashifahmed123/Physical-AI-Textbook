@@ -1,0 +1,217 @@
+openapi: 3.0.0
+info:
+  title: Textbook AI Chatbot API
+  description: API for the RAG chatbot functionality in the Physical AI & Humanoid Robotics textbook
+  version: 1.0.0
+servers:
+  - url: https://api.physical-ai-textbook.com
+    description: Production server
+  - url: https://staging.api.physical-ai-textbook.com
+    description: Staging server
+
+paths:
+  /api/v1/chatbot/query:
+    post:
+      summary: Submit a question to the textbook chatbot
+      description: Process a user question against textbook content and return an answer based only on book content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatbotQueryRequest'
+      responses:
+        '200':
+          description: Successful response with answer from textbook content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatbotQueryResponse'
+        '400':
+          description: Invalid request - missing required fields or invalid content
+        '500':
+          description: Internal server error
+
+  /api/v1/chatbot/query-with-selection:
+    post:
+      summary: Submit a question based on selected textbook content
+      description: Process a user question based specifically on selected textbook content
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatbotQueryWithSelectionRequest'
+      responses:
+        '200':
+          description: Successful response with answer based on selected content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatbotQueryResponse'
+        '400':
+          description: Invalid request - missing required fields or invalid content
+        '500':
+          description: Internal server error
+
+  /api/v1/user/preferences:
+    get:
+      summary: Get user preferences and background
+      description: Retrieve the current user's preferences and background information
+      responses:
+        '200':
+          description: User preferences successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreferencesResponse'
+        '401':
+          description: Unauthorized - user not authenticated
+        '500':
+          description: Internal server error
+    put:
+      summary: Update user preferences and background
+      description: Update the current user's preferences and background information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferencesUpdateRequest'
+      responses:
+        '200':
+          description: User preferences successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPreferencesResponse'
+        '400':
+          description: Invalid request - missing required fields or invalid content
+        '401':
+          description: Unauthorized - user not authenticated
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    ChatbotQueryRequest:
+      type: object
+      required:
+        - question
+      properties:
+        question:
+          type: string
+          description: The question to ask the chatbot
+          example: "What is embodied intelligence in Physical AI?"
+        userId:
+          type: string
+          description: Optional user ID for personalization
+          example: "user-12345"
+
+    ChatbotQueryWithSelectionRequest:
+      type: object
+      required:
+        - question
+        - selectedContent
+      properties:
+        question:
+          type: string
+          description: The question to ask about the selected content
+          example: "Can you explain this concept further?"
+        selectedContent:
+          type: string
+          description: The specific content the user has selected
+          example: "Embodied intelligence refers to the idea that intelligence emerges from the interaction between an agent and its environment..."
+        userId:
+          type: string
+          description: Optional user ID for personalization
+          example: "user-12345"
+
+    ChatbotQueryResponse:
+      type: object
+      required:
+        - answer
+        - sources
+        - confidence
+      properties:
+        answer:
+          type: string
+          description: The chatbot's answer based on textbook content
+          example: "Embodied intelligence is the concept that..."
+        sources:
+          type: array
+          items:
+            type: string
+          description: List of textbook sections used to generate the answer
+          example: ["module-1-foundations/introduction", "module-1-foundations/core-concepts"]
+        confidence:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Confidence level of the response
+          example: 0.95
+        followupQuestions:
+          type: array
+          items:
+            type: string
+          description: Suggested follow-up questions
+          example: ["What are the key principles of embodied intelligence?", "How does this differ from traditional AI?"]
+
+    UserPreferencesResponse:
+      type: object
+      required:
+        - userId
+        - background
+        - preferences
+      properties:
+        userId:
+          type: string
+          description: Unique identifier for the user
+          example: "user-12345"
+        background:
+          type: string
+          enum: [university_student, software_engineer, ai_practitioner]
+          description: User's background for content personalization
+          example: "software_engineer"
+        preferences:
+          type: object
+          description: Additional user preferences
+          properties:
+            language:
+              type: string
+              default: "en"
+              description: Preferred language for content
+            difficultyLevel:
+              type: string
+              enum: [beginner, intermediate, advanced]
+              default: "intermediate"
+              description: Preferred difficulty level for explanations
+
+    UserPreferencesUpdateRequest:
+      type: object
+      required:
+        - background
+      properties:
+        background:
+          type: string
+          enum: [university_student, software_engineer, ai_practitioner]
+          description: User's background for content personalization
+          example: "software_engineer"
+        preferences:
+          type: object
+          description: Additional user preferences
+          properties:
+            language:
+              type: string
+              description: Preferred language for content
+            difficultyLevel:
+              type: string
+              enum: [beginner, intermediate, advanced]
+              description: Preferred difficulty level for explanations
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
