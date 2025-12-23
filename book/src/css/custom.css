@@ -28,6 +28,27 @@
   --ifm-h3-font-size: 1.5rem;
   --ifm-h4-font-size: 1.25rem;
 
+  /* Professional color palette */
+  --ifm-color-info-contrast-background: #e6f7ff;
+  --ifm-color-info-contrast-foreground: #0066cc;
+  --ifm-color-success-contrast-background: #e6f9f0;
+  --ifm-color-success-contrast-foreground: #22c55e;
+  --ifm-color-warning-contrast-background: #fffbeb;
+  --ifm-color-warning-contrast-foreground: #f59e0b;
+  --ifm-color-danger-contrast-background: #fef2f2;
+  --ifm-color-danger-contrast-foreground: #ef4444;
+
+  --ifm-color-emphasis-0: #000;
+  --ifm-color-emphasis-100: #111827;
+  --ifm-color-emphasis-200: #374151;
+  --ifm-color-emphasis-300: #6b7280;
+  --ifm-color-emphasis-400: #9ca3af;
+  --ifm-color-emphasis-500: #d1d5db;
+  --ifm-color-emphasis-600: #e5e7eb;
+  --ifm-color-emphasis-700: #f3f4f6;
+  --ifm-color-emphasis-800: #f9fafb;
+  --ifm-color-emphasis-900: #ffffff;
+
   /* Typography improvements */
   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --ifm-font-family-monospace: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Ubuntu Mono', 'Liberation Mono', 'Courier New', monospace;
@@ -60,6 +81,27 @@ html[data-theme='dark'] {
   --ifm-background-surface-color: #1e293b;
   --ifm-card-background-color: #1e293b;
   --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+
+  /* Dark mode color palette */
+  --ifm-color-info-contrast-background: #1e3a8a;
+  --ifm-color-info-contrast-foreground: #93c5fd;
+  --ifm-color-success-contrast-background: #14532d;
+  --ifm-color-success-contrast-foreground: #86efac;
+  --ifm-color-warning-contrast-background: #713f12;
+  --ifm-color-warning-contrast-foreground: #fde68a;
+  --ifm-color-danger-contrast-background: #7f1d1d;
+  --ifm-color-danger-contrast-foreground: #fecaca;
+
+  --ifm-color-emphasis-0: #ffffff;
+  --ifm-color-emphasis-100: #f9fafb;
+  --ifm-color-emphasis-200: #f3f4f6;
+  --ifm-color-emphasis-300: #e5e7eb;
+  --ifm-color-emphasis-400: #d1d5db;
+  --ifm-color-emphasis-500: #9ca3af;
+  --ifm-color-emphasis-600: #6b7280;
+  --ifm-color-emphasis-700: #374151;
+  --ifm-color-emphasis-800: #1f2937;
+  --ifm-color-emphasis-900: #111827;
 }
 
 /* Professional typography and layout */
@@ -180,19 +222,40 @@ pre {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: var(--ifm-block-margin-vertical) 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
 }
 
 .markdown table th,
 .markdown table td {
-  border: 1px solid var(--ifm-color-emphasis-300);
   padding: 0.75rem 1rem;
-  border-color: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  vertical-align: top;
 }
 
 .markdown table th {
   background-color: var(--ifm-color-emphasis-100);
   font-weight: 600;
-  color: var(--ifm-color-emphasis-700);
+  color: var(--ifm-color-emphasis-800);
+  text-align: left;
+}
+
+.markdown table tr:nth-child(2n) {
+  background-color: var(--ifm-color-emphasis-50);
+}
+
+.markdown table tr:hover {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+/* Dark mode table enhancements */
+html[data-theme='dark'] .markdown table tr:nth-child(2n) {
+  background-color: var(--ifm-color-emphasis-800);
+}
+
+html[data-theme='dark'] .markdown table tr:hover {
+  background-color: var(--ifm-color-emphasis-700);
 }
 
 /* Professional blockquote styling */
@@ -378,28 +441,73 @@ pre {
   border-radius: 8px;
   border-left-width: 4px;
   padding: 1.25rem;
-  margin: 1.5rem 0;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  margin: var(--ifm-block-margin-vertical) 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  border-left-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+  position: relative;
+  overflow: visible;
 }
 
 .alert--info {
   border-left-color: var(--ifm-color-primary);
-  background-color: var(--ifm-color-emphasis-50);
+  background-color: var(--ifm-color-info-contrast-background);
+  color: var(--ifm-color-info-contrast-foreground);
 }
 
+.alert--info .alert__heading {
+  color: var(--ifm-color-info-contrast-foreground);
+}
+
+.alert--success,
 .alert--tip {
-  border-left-color: #10b981;
-  background-color: rgba(16, 185, 129, 0.05);
+  border-left-color: var(--ifm-color-success-contrast-foreground);
+  background-color: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-emphasis-800);
 }
 
-.alert--caution {
-  border-left-color: #f59e0b;
-  background-color: rgba(245, 158, 11, 0.05);
+.alert--success .alert__heading,
+.alert--tip .alert__heading {
+  color: var(--ifm-color-success-contrast-foreground);
 }
 
-.alert--danger {
-  border-left-color: #ef4444;
-  background-color: rgba(239, 68, 68, 0.05);
+.alert--caution,
+.alert--warning {
+  border-left-color: var(--ifm-color-warning-contrast-foreground);
+  background-color: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.alert--caution .alert__heading,
+.alert--warning .alert__heading {
+  color: var(--ifm-color-warning-contrast-foreground);
+}
+
+.alert--danger,
+.alert--error {
+  border-left-color: var(--ifm-color-danger-contrast-foreground);
+  background-color: var(--ifm-color-danger-contrast-background);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.alert--danger .alert__heading,
+.alert--error .alert__heading {
+  color: var(--ifm-color-danger-contrast-foreground);
+}
+
+.alert__icon {
+  position: absolute;
+  left: -12px;
+  top: calc(50% - 0.5em);
+  background-color: currentColor;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.8em;
 }
 
 /* Search bar enhancements */
