@@ -14,10 +14,19 @@
   --ifm-color-primary-light: #2d5a87; /* Lighter blue */
   --ifm-color-primary-lighter: #3a70a3; /* Light blue */
   --ifm-color-primary-lightest: #4a85c0; /* Lightest blue */
-  --ifm-code-font-size: 90%;
+  --ifm-code-font-size: 95%;
   --ifm-font-size-base: 17px;
   --ifm-line-height-base: 1.7;
   --ifm-contents-border-color: var(--ifm-color-emphasis-300);
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ifm-card-background-color: #fff;
+  --ifm-card-border-radius: 8px;
+  --ifm-card-horizontal-spacing: var(--ifm-global-spacing);
+  --ifm-card-vertical-spacing: var(--ifm-global-spacing);
+  --ifm-h1-font-size: 2.5rem;
+  --ifm-h2-font-size: 1.75rem;
+  --ifm-h3-font-size: 1.5rem;
+  --ifm-h4-font-size: 1.25rem;
 }
 
 /* Dark theme */
@@ -29,13 +38,15 @@ html[data-theme='dark'] {
   --ifm-color-primary-light: #69b3e7;
   --ifm-color-primary-lighter: #87c4eb;
   --ifm-color-primary-lightest: #a6d5ef;
-  --ifm-background-color: #121826;
-  --ifm-background-surface-color: #1a202c;
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --ifm-card-background-color: #1e293b;
+  --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Professional typography and layout */
 .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.07);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
@@ -52,71 +63,105 @@ html {
 
 /* Enhanced container for better readability */
 .container {
-  max-width: 100%;
+  max-width: 1200px;
   padding: 0 2rem;
+  margin: 0 auto;
+}
+
+/* Enhanced main content layout */
+.main-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
 }
 
 /* Professional card styling for content sections */
 .card {
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: var(--ifm-card-border-radius);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.2s ease;
+  background-color: var(--ifm-card-background-color);
 }
 
 .card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 /* Enhanced code block styling */
 code {
   border-radius: 4px;
   padding: 2px 6px;
+  background-color: var(--ifm-color-emphasis-100);
+  font-size: var(--ifm-code-font-size);
 }
 
 pre code {
-  padding: 1rem;
-  border-radius: 6px;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  line-height: 1.45;
 }
 
 /* Professional sidebar styling */
 .menu {
   font-size: 0.9rem;
+  padding-right: 0.5rem;
 }
 
 .menu__list {
   margin-bottom: 0.5rem;
 }
 
+.menu__link {
+  border-radius: 6px;
+  margin: 2px 0;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
 .menu__link--active {
+  background-color: var(--ifm-color-emphasis-100);
+  font-weight: 600;
   border-left: 3px solid var(--ifm-color-primary);
   padding-left: 15px;
+}
+
+.menu__link:hover {
+  background-color: var(--ifm-color-emphasis-100);
 }
 
 /* Enhanced table styling */
 .markdown table {
   display: table;
   table-layout: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .markdown table th,
 .markdown table td {
   border: 1px solid var(--ifm-color-emphasis-300);
   padding: 0.75rem 1rem;
+  border-color: var(--ifm-color-emphasis-200);
 }
 
 .markdown table th {
   background-color: var(--ifm-color-emphasis-100);
   font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
 }
 
 /* Professional blockquote styling */
 .markdown blockquote {
   border-left: 4px solid var(--ifm-color-primary);
-  background-color: var(--ifm-color-emphasis-100);
-  padding: 1rem 1.5rem;
+  background-color: var(--ifm-color-emphasis-50);
+  padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  color: var(--ifm-color-emphasis-700);
 }
 
 /* Enhanced heading styling */
@@ -129,77 +174,157 @@ pre code {
   font-weight: 600;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 .markdown h1 {
-  font-size: 2.2rem;
-  border-bottom: 2px solid var(--ifm-color-emphasis-300);
-  padding-bottom: 0.5rem;
+  font-size: var(--ifm-h1-font-size);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 1.5rem;
+  color: var(--ifm-color-emphasis-900);
 }
 
 .markdown h2 {
-  font-size: 1.8rem;
+  font-size: var(--ifm-h2-font-size);
   color: var(--ifm-color-primary);
+  margin-top: 2.5rem;
 }
 
 .markdown h3 {
-  font-size: 1.5rem;
+  font-size: var(--ifm-h3-font-size);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.markdown h4 {
+  font-size: var(--ifm-h4-font-size);
+  color: var(--ifm-color-emphasis-700);
 }
 
 /* Professional navigation styling */
 .navbar {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  box-shadow: var(--ifm-navbar-shadow);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: var(--ifm-background-color);
 }
 
 .navbar__title {
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--ifm-color-primary);
+}
+
+.navbar__brand {
+  margin-right: 1.5rem;
+}
+
+.navbar__item,
+.navbar__link {
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 /* Footer enhancements */
 .footer {
   background-color: var(--ifm-background-surface-color);
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.footer__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.footer__item {
+  line-height: 1.6;
 }
 
 /* Better link styling */
 .markdown a {
   text-decoration: none;
-  border-bottom: 1px dotted currentColor;
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  position: relative;
+}
+
+.markdown a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--ifm-color-primary);
+  transition: width 0.2s ease;
 }
 
 .markdown a:hover {
   text-decoration: none;
-  border-bottom: 2px solid currentColor;
+  color: var(--ifm-color-primary-darker);
+}
+
+.markdown a:hover::after {
+  width: 100%;
 }
 
 /* Enhanced list styling */
 .markdown ul,
 .markdown ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
+  margin: 1.25rem 0;
+  padding-left: 1.75rem;
 }
 
 .markdown li {
   margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.markdown ul {
+  list-style-type: disc;
+}
+
+.markdown ol {
+  list-style-type: decimal;
 }
 
 /* Better spacing for content */
 .markdown {
   line-height: var(--ifm-line-height-base);
+  font-size: 1.05rem;
 }
 
 /* Professional admonitions */
 .alert {
-  border-radius: 6px;
+  border-radius: 8px;
   border-left-width: 4px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .alert--info {
   border-left-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-50);
+}
+
+.alert--tip {
+  border-left-color: #10b981;
+  background-color: rgba(16, 185, 129, 0.05);
+}
+
+.alert--caution {
+  border-left-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.05);
+}
+
+.alert--danger {
+  border-left-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.05);
 }
 
 /* Search bar enhancements */
@@ -211,10 +336,74 @@ pre code {
 @media (max-width: 996px) {
   .container {
     padding: 0 1rem;
+    max-width: 100%;
   }
 
   .navbar__item,
   .navbar__link {
     font-size: 0.9rem;
+  }
+
+  .markdown h1 {
+    font-size: 2rem;
+  }
+
+  .markdown h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Additional academic styling for textbook */
+.markdown p {
+  margin: 1.25rem 0;
+  line-height: 1.8;
+}
+
+.markdown img {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin: 1.5rem 0;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Enhanced code tabs */
+.tabs-container {
+  margin: 1.5rem 0;
+}
+
+/* Better horizontal rule styling */
+.markdown hr {
+  border: none;
+  height: 1px;
+  background-color: var(--ifm-color-emphasis-200);
+  margin: 2rem 0;
+}
+
+/* Professional sidebar organization */
+.theme-doc-sidebar-menu {
+  padding-right: 0.5rem;
+}
+
+/* Better content area focus */
+.docItemContainer {
+  max-width: 850px;
+}
+
+/* Academic footnote styling */
+.footnote-ref,
+.footnote-backref {
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+}
+
+/* Better responsive behavior */
+@media (min-width: 997px) {
+  .col--3 {
+    flex: 0 0 25%;
+  }
+
+  .col--9 {
+    flex: 0 0 75%;
   }
 }
