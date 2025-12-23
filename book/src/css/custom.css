@@ -163,28 +163,62 @@ code {
   background-color: var(--ifm-color-emphasis-100);
   font-size: var(--ifm-code-font-size);
   font-family: var(--ifm-font-family-monospace);
-  color: #e62e2e; /* Better contrast for inline code */
+  color: #d9534f; /* Better contrast for inline code */
+  font-weight: 500;
 }
 
 pre code {
   padding: 1.25rem;
   border-radius: 8px;
   background-color: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-200);
-  line-height: 1.45;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  line-height: 1.5;
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.95rem;
   overflow-x: auto;
   display: block;
   margin: var(--ifm-block-margin-vertical) 0;
+  color: var(--ifm-color-emphasis-800);
 }
 
 /* Code block container styling */
 pre {
   border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   margin: var(--ifm-block-margin-vertical) 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+/* Dark mode code block enhancements */
+html[data-theme='dark'] code {
+  background-color: var(--ifm-color-emphasis-700);
+  color: #ff6b6b;
+}
+
+html[data-theme='dark'] pre code {
+  background-color: var(--ifm-color-emphasis-800);
+  color: #f8f8f2;
+  border-color: var(--ifm-color-emphasis-600);
+}
+
+html[data-theme='dark'] pre {
+  background-color: var(--ifm-color-emphasis-800);
+  border-color: var(--ifm-color-emphasis-600);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Code block line highlighting */
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Professional sidebar styling */
@@ -370,26 +404,37 @@ html[data-theme='dark'] .markdown table tr:hover {
   color: var(--ifm-color-primary);
   font-weight: 500;
   position: relative;
-}
-
-.markdown a::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: var(--ifm-color-primary);
-  transition: width 0.2s ease;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .markdown a:hover {
-  text-decoration: none;
   color: var(--ifm-color-primary-darker);
+  border-bottom-color: var(--ifm-color-primary);
+  text-decoration: none;
 }
 
-.markdown a:hover::after {
-  width: 100%;
+/* External link styling */
+.markdown a[rel="noopener noreferrer"] {
+  position: relative;
+  padding-right: 1.2em;
+}
+
+.markdown a[rel="noopener noreferrer"]::after {
+  content: "↗";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
+/* Link with custom styling */
+.navbar__link,
+.menu__link {
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 /* Better spacing for content */
