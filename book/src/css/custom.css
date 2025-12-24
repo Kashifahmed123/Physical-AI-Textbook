@@ -681,6 +681,74 @@ h1, h2, h3 {
     opacity: 1 !important;
 }
 
+/* Enhanced markdown content readability */
+.markdown,
+.markdown p,
+.markdown li,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6,
+.markdown code,
+.markdown pre,
+.markdown blockquote,
+.markdown table,
+.markdown th,
+.markdown td {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Ensure code blocks have proper contrast */
+.markdown code,
+.markdown pre {
+    color: #fbbf24 !important;
+    background-color: #1f2937 !important;
+}
+
+/* Enhanced sidebar readability */
+.menu__list,
+.menu__link,
+.menu__list-item {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Enhanced TOC readability */
+.table-of-contents,
+.table-of-contents__link,
+.table-of-contents__item {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Enhanced footer readability */
+.footer,
+.footer__title,
+.footer__item,
+.footer__link-item {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Enhanced navbar readability */
+.navbar,
+.navbar__title,
+.navbar__link {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Ensure all text elements have high contrast */
+*[class*="theme"],
+*[class*="doc"],
+*[class*="markdown"] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
 .menu__list {
   margin-bottom: 0.5rem;
 }
