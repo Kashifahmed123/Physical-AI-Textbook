@@ -570,6 +570,58 @@ body {
   background-color: #020617 !important;
 }
 
+/* =========================================
+   READABILITY FIX — HIGH CONTRAST CONTENT
+   ========================================= */
+
+/* Main document title */
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3 {
+  color: #f9fafb !important;
+  opacity: 1 !important;
+}
+
+/* Page title (Module titles) */
+.theme-doc-markdown header h1 {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Paragraph text */
+.theme-doc-markdown p,
+.theme-doc-markdown li {
+  color: #e5e7eb !important;
+  opacity: 1 !important;
+}
+
+/* Breadcrumb / page header */
+.theme-doc-breadcrumbs,
+.theme-doc-breadcrumbs a {
+  color: #cbd5f5 !important;
+}
+
+/* Right-side Table of Contents */
+.table-of-contents__link {
+  color: #cbd5f5 !important;
+}
+
+.table-of-contents__link--active {
+  color: #60a5fa !important;
+  font-weight: 600;
+}
+
+/* Remove dark gradient overlays */
+.theme-doc-markdown {
+  background: transparent !important;
+}
+
+/* Fix sidebar active item contrast */
+.menu__link--active {
+  background-color: rgba(96, 165, 250, 0.15) !important;
+  border-left: 3px solid #60a5fa;
+}
+
 /* Professional sidebar styling */
 .menu {
   font-size: 0.9rem;
