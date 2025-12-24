@@ -486,141 +486,90 @@ html[data-theme='dark'] .token.variable {
 }
 
 /* =========================================
-   PROFESSIONAL DARK TEXTBOOK THEME
+   PROFESSIONAL LIGHT TEXTBOOK THEME
    ========================================= */
 
 html,
 body {
-  background-color: #0b0f19 !important;
-  color: #e5e7eb !important;
+  background-color: #ffffff !important;
+  color: #1f2937 !important;
 }
 
 .main-wrapper {
-  background-color: #0b0f19 !important;
+  background-color: #ffffff !important;
 }
 
 .markdown {
-  color: #e5e7eb !important;
+  color: #1f2937 !important;
   font-size: 1rem;
   line-height: 1.8;
 }
 
 .markdown p,
 .markdown li {
-  color: #e5e7eb !important;
+  color: #1f2937 !important;
   opacity: 1 !important;
 }
 
 .markdown h1 {
-  color: #ffffff !important;
+  color: #111827 !important;
   font-size: 2.2rem;
 }
 
 .markdown h2 {
-  color: #f9fafb !important;
+  color: #1f2937 !important;
   font-size: 1.7rem;
   margin-top: 2.5rem;
 }
 
 .markdown h3 {
-  color: #e5e7eb !important;
+  color: #374151 !important;
 }
 
 .markdown a {
-  color: #60a5fa !important;
+  color: #2563eb !important;
 }
 
 .markdown a:hover {
-  color: #93c5fd !important;
+  color: #1d4ed8 !important;
 }
 
 .markdown code {
-  background-color: #111827 !important;
-  color: #facc15 !important;
+  background-color: #f3f4f6 !important;
+  color: #d946ef !important;
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
 
 .theme-code-block {
-  background-color: #020617 !important;
+  background-color: #f9fafb !important;
 }
 
 .theme-doc-sidebar-container {
-  background-color: #020617 !important;
+  background-color: #f9fafb !important;
 }
 
 .menu__link {
-  color: #cbd5f5 !important;
+  color: #374151 !important;
 }
 
 .menu__link--active {
-  color: #60a5fa !important;
+  color: #2563eb !important;
   font-weight: 600;
 }
 
 .table-of-contents__link {
-  color: #9ca3af !important;
+  color: #4b5563 !important;
 }
 
 .table-of-contents__link--active {
-  color: #60a5fa !important;
+  color: #2563eb !important;
 }
 
 .navbar {
-  background-color: #020617 !important;
+  background-color: #ffffff !important;
 }
 
-/* =========================================
-   READABILITY FIX — HIGH CONTRAST CONTENT
-   ========================================= */
-
-/* Main document title */
-.theme-doc-markdown h1,
-.theme-doc-markdown h2,
-.theme-doc-markdown h3 {
-  color: #f9fafb !important;
-  opacity: 1 !important;
-}
-
-/* Page title (Module titles) */
-.theme-doc-markdown header h1 {
-  color: #ffffff !important;
-  font-weight: 700;
-}
-
-/* Paragraph text */
-.theme-doc-markdown p,
-.theme-doc-markdown li {
-  color: #e5e7eb !important;
-  opacity: 1 !important;
-}
-
-/* Breadcrumb / page header */
-.theme-doc-breadcrumbs,
-.theme-doc-breadcrumbs a {
-  color: #cbd5f5 !important;
-}
-
-/* Right-side Table of Contents */
-.table-of-contents__link {
-  color: #cbd5f5 !important;
-}
-
-.table-of-contents__link--active {
-  color: #60a5fa !important;
-  font-weight: 600;
-}
-
-/* Remove dark gradient overlays */
-.theme-doc-markdown {
-  background: transparent !important;
-}
-
-/* Fix sidebar active item contrast */
-.menu__link--active {
-  background-color: rgba(96, 165, 250, 0.15) !important;
-  border-left: 3px solid #60a5fa;
-}
 
 /* Professional sidebar styling */
 .menu {
@@ -665,89 +614,6 @@ body {
   z-index: -1;
 }
 
-/* Forces all text, headers, and list items to white */
-body, h1, h2, h3, h4, h5, p, li, span, div {
-    color: #ffffff !important;
-}
-
-/* Ensures links are light enough to see, but distinct */
-a {
-    color: #add8e6 !important;
-    text-decoration: underline;
-}
-
-/* Fixes the transparency issue visible in headers */
-h1, h2, h3 {
-    opacity: 1 !important;
-}
-
-/* Enhanced markdown content readability */
-.markdown,
-.markdown p,
-.markdown li,
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5,
-.markdown h6,
-.markdown code,
-.markdown pre,
-.markdown blockquote,
-.markdown table,
-.markdown th,
-.markdown td {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
-/* Ensure code blocks have proper contrast */
-.markdown code,
-.markdown pre {
-    color: #fbbf24 !important;
-    background-color: #1f2937 !important;
-}
-
-/* Enhanced sidebar readability */
-.menu__list,
-.menu__link,
-.menu__list-item {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
-/* Enhanced TOC readability */
-.table-of-contents,
-.table-of-contents__link,
-.table-of-contents__item {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
-/* Enhanced footer readability */
-.footer,
-.footer__title,
-.footer__item,
-.footer__link-item {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
-/* Enhanced navbar readability */
-.navbar,
-.navbar__title,
-.navbar__link {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
-/* Ensure all text elements have high contrast */
-*[class*="theme"],
-*[class*="doc"],
-*[class*="markdown"] {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
 
 .menu__list {
   margin-bottom: 0.5rem;
