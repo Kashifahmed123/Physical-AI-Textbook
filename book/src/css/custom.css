@@ -638,6 +638,7 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 2.5rem;
+  position: relative;
 }
 
 .heroVisual img {
@@ -650,6 +651,19 @@ body {
 }
 
 /* Soft background glow – CSS only */
+.heroVisual::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 320px;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.25),
+    transparent 70%
+  );
+  filter: blur(60px);
+  z-index: -1;
+}
 
 .menu__list {
   margin-bottom: 0.5rem;

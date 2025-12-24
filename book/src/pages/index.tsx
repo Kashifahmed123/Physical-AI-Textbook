@@ -11,7 +11,7 @@ export default function Home() {
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">Physical AI & Humanoid Robotics</h1>
-          <p className="hero__subtitle">An AI-Native Technical Textbook</p>
+          <p className="hero__subtitle">An academic and practical guide to Physical AI, Humanoid Robotics, and Embodied Intelligence</p>
           <div className="heroVisual">
             <img
               src="/img/humanoid-ai-hero.svg"
