@@ -630,6 +630,27 @@ body {
   padding-bottom: 1rem;
 }
 
+/* ========================================
+   SAFE PROFESSIONAL HOMEPAGE STYLING
+   ======================================== */
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.heroVisual img {
+  max-width: 720px;
+  width: 100%;
+  border-radius: 14px;
+  filter:
+    drop-shadow(0 0 22px rgba(56, 189, 248, 0.35))
+    brightness(1.05);
+}
+
+/* Soft background glow – CSS only */
+
 .menu__list {
   margin-bottom: 0.5rem;
 }

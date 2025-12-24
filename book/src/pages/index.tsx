@@ -12,6 +12,12 @@ export default function Home() {
         <div className="container">
           <h1 className="hero__title">Physical AI & Humanoid Robotics</h1>
           <p className="hero__subtitle">An AI-Native Technical Textbook</p>
+          <div className="heroVisual">
+            <img
+              src="/img/humanoid-ai-hero.svg"
+              alt="Physical AI and Humanoid Robotics"
+            />
+          </div>
           <div className={styles.buttons}>
             <Link
               className="button button--secondary button--lg"
