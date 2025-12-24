@@ -143,6 +143,110 @@ html {
   padding: 0 1rem;
 }
 
+/* Documentation landing page styling */
+.docMainContainer {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.docItemWrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Documentation category styling */
+.theme-doc-sidebar-item-category-level-1 > .menu__list .menu__list-item,
+.theme-doc-sidebar-item-category-level-2 > .menu__list .menu__list-item {
+  border-left: 1px solid var(--ifm-color-emphasis-200);
+  margin-left: 0.5rem;
+  padding-left: 0.75rem;
+}
+
+html[data-theme='dark'] .theme-doc-sidebar-item-category-level-1 > .menu__list .menu__list-item,
+html[data-theme='dark'] .theme-doc-sidebar-item-category-level-2 > .menu__list .menu__list-item {
+  border-left: 1px solid var(--ifm-color-emphasis-700);
+}
+
+/* Documentation page header styling */
+.doc-page-header {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+html[data-theme='dark'] .doc-page-header {
+  border-bottom: 1px solid var(--ifm-color-emphasis-700);
+}
+
+/* Documentation intro page styling */
+.doc-intro-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 3rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+html[data-theme='dark'] .doc-intro-section {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: var(--ifm-color-emphasis-700);
+}
+
+/* Documentation module cards */
+.doc-module-card {
+  background: var(--ifm-color-emphasis-50);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doc-module-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme='dark'] .doc-module-card {
+  background: var(--ifm-color-emphasis-800);
+  border-color: var(--ifm-color-emphasis-700);
+}
+
+/* Documentation separators */
+.doc-separator {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--ifm-color-emphasis-300), transparent);
+  margin: 2rem 0;
+  border: none;
+}
+
+html[data-theme='dark'] .doc-separator {
+  background: linear-gradient(to right, transparent, var(--ifm-color-emphasis-600), transparent);
+}
+
+/* Documentation section headers */
+.doc-section-header {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
+.doc-section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--ifm-color-primary);
+}
+
+html[data-theme='dark'] .doc-section-header {
+  border-bottom: 2px solid var(--ifm-color-emphasis-700);
+}
+
 /* Professional card styling for content sections */
 .card {
   border: none;

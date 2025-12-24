@@ -1,0 +1,71 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%);
+  color: white;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.mainContent {
+  padding: 2rem 0;
+}
+
+.features {
+  padding: 2rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin: 3rem 0;
+}
+
+.featureTitle {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.featureTitle::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--ifm-color-primary);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 996px) {
+  .featureTitle {
+    font-size: 1.25rem;
+  }
+}
+
+html[data-theme='dark'] .features {
+  border-top: 1px solid var(--ifm-color-emphasis-700);
+  border-bottom: 1px solid var(--ifm-color-emphasis-700);
+}
+
+html[data-theme='dark'] .featureTitle {
+  color: var(--ifm-color-primary-light);
+}
