@@ -485,6 +485,91 @@ html[data-theme='dark'] .token.variable {
   color: #ff922b;
 }
 
+/* =========================================
+   PROFESSIONAL DARK TEXTBOOK THEME
+   ========================================= */
+
+html,
+body {
+  background-color: #0b0f19 !important;
+  color: #e5e7eb !important;
+}
+
+.main-wrapper {
+  background-color: #0b0f19 !important;
+}
+
+.markdown {
+  color: #e5e7eb !important;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.markdown p,
+.markdown li {
+  color: #e5e7eb !important;
+  opacity: 1 !important;
+}
+
+.markdown h1 {
+  color: #ffffff !important;
+  font-size: 2.2rem;
+}
+
+.markdown h2 {
+  color: #f9fafb !important;
+  font-size: 1.7rem;
+  margin-top: 2.5rem;
+}
+
+.markdown h3 {
+  color: #e5e7eb !important;
+}
+
+.markdown a {
+  color: #60a5fa !important;
+}
+
+.markdown a:hover {
+  color: #93c5fd !important;
+}
+
+.markdown code {
+  background-color: #111827 !important;
+  color: #facc15 !important;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.theme-code-block {
+  background-color: #020617 !important;
+}
+
+.theme-doc-sidebar-container {
+  background-color: #020617 !important;
+}
+
+.menu__link {
+  color: #cbd5f5 !important;
+}
+
+.menu__link--active {
+  color: #60a5fa !important;
+  font-weight: 600;
+}
+
+.table-of-contents__link {
+  color: #9ca3af !important;
+}
+
+.table-of-contents__link--active {
+  color: #60a5fa !important;
+}
+
+.navbar {
+  background-color: #020617 !important;
+}
+
 /* Professional sidebar styling */
 .menu {
   font-size: 0.9rem;
