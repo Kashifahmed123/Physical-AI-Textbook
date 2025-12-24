@@ -849,6 +849,28 @@ html[data-theme='dark'] .footer__copyright {
   opacity: 0.7;
 }
 
+/* Sidebar readability */
+.theme-doc-sidebar-container {
+  font-size: 0.95rem;
+}
+
+/* Active sidebar item */
+.menu__link--active {
+  font-weight: 600;
+  color: #1d4ed8;
+}
+
+/* Right-side TOC */
+.table-of-contents {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* Reduce TOC dominance */
+.table-of-contents__link {
+  color: #374151;
+}
+
 /* Link with custom styling */
 .navbar__link,
 .menu__link {
