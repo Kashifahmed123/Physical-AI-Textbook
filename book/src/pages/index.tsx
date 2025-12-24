@@ -14,7 +14,7 @@ export default function Home() {
           <p className="hero__subtitle">An academic and practical guide to Physical AI, Humanoid Robotics, and Embodied Intelligence</p>
           <div className="heroVisual">
             <img
-              src="/img/humanoid-ai-hero.svg"
+              src="/img/humanoid-ai-hero.jpg"
               alt="Physical AI and Humanoid Robotics"
             />
           </div>
