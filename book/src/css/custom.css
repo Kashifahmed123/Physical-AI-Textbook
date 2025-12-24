@@ -665,6 +665,22 @@ body {
   z-index: -1;
 }
 
+/* Forces all text, headers, and list items to white */
+body, h1, h2, h3, h4, h5, p, li, span, div {
+    color: #ffffff !important;
+}
+
+/* Ensures links are light enough to see, but distinct */
+a {
+    color: #add8e6 !important;
+    text-decoration: underline;
+}
+
+/* Fixes the transparency issue visible in headers */
+h1, h2, h3 {
+    opacity: 1 !important;
+}
+
 .menu__list {
   margin-bottom: 0.5rem;
 }
